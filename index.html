@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지속가능 소비 홈페이지</title>
+    <style>
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            background-color: #E6F2E6; /* 친환경 느낌 연한 초록 */
+            color: #3E3E3E;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* 버튼 스타일 */
+        .tab-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tab-buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: 2px solid #3E3E3E;
+            border-radius: 5px;
+            background-color: #FFFFFF;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .tab-buttons button:hover,
+        .tab-buttons button.active {
+            background-color: #3E3E3E;
+            color: #FFFFFF;
+        }
+
+        /* 탭 콘텐츠 */
+        .tab-content {
+            display: none; /* 기본 숨김 */
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border: 2px solid #3E3E3E;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #3E3E3E;
+            margin-top: 20px;
+        }
+
+        .survey textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+            resize: vertical;
+            height: 100px;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>지속가능 소비 홈페이지</h1>
+
+<div class="tab-buttons">
+    <button class="active" onclick="openTab('map')">지도 보기</button>
+    <button onclick="openTab('ethics')">상거래 소비 윤리</button>
+    <button onclick="openTab('survey')">지도 추가 요청</button>
+</div>
+
+<!-- 탭 1: 지도 -->
+<div id="map" class="tab-content active">
+    <h2>충남대학교 주변 지속가능한 헬스장</h2>
+    <p>충남대를 중심으로 지속가능한 소비를 만들어나갑니다.</p>
+    <img src="충남대_헬스장_지도.png" alt="충남대 주변 헬스장 지도">
+</div>
+
+<!-- 탭 2: 상거래 소비 윤리 -->
+<div id="ethics" class="tab-content">
+    <h2>상거래상 소비 윤리</h2>
+    <p>
+        상거래상 소비윤리는 시장의 신뢰와 지속가능성을 유지하는 데 필수적입니다.
+        불공정한 약관, 허위 광고, 과도한 수수료 등은 소비자의 권리를 침해하고
+        시장의 건전한 경쟁을 해치는 요인이 됩니다. 윤리적인 상거래는 기업의
+        사회적 책임을 강화하며, 소비자가 신뢰할 수 있는 시장 환경을 만드는 핵심 요소입니다.
+    </p>
+</div>
+
+<!-- 탭 3: 설문 -->
+<div id="survey" class="tab-content survey">
+    <h2>지도 추가 요청</h2>
+    <p>어떤 종류의 지속가능 업체 지도를 만들어주면 좋을지 의견을 남겨주세요:</p>
+    <textarea placeholder="예: 친환경 카페, 로컬 마켓, 제로웨이스트 샵 등"></textarea>
+</div>
+
+<script>
+    function openTab(tabId) {
+        // 모든 탭 숨기기
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        // 모든 버튼 비활성화
+        const buttons = document.querySelectorAll('.tab-buttons button');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // 선택한 탭 활성화
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
